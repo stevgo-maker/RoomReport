@@ -1,0 +1,19 @@
+{
+  "name": "Room Finder",
+  "short_name": "Room Finder",
+  "description": "Parse daily HTML room schedule reports and find available rooms.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f1f5f9",
+  "theme_color": "#0f4c81",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
