@@ -22,388 +22,116 @@
       --accent-hover: #0c3b66;
       --accent-contrast: #ffffff;
       --secondary-bg: #e2e8f0;
-      --secondary-text: #0f172a;
       --danger: #b91c1c;
       --danger-bg: #fef2f2;
       --success: #15803d;
-      --success-bg: #f0fdf4;
       --radius: 12px;
       --shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
     }
-
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
-
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
+      margin: 0; padding: 0; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px; line-height: 1.5;
     }
-
     .app-shell {
-      max-width: 480px;
-      margin: 0 auto;
-      min-height: 100dvh;
-      padding: 12px 14px 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      max-width: 480px; margin: 0 auto; min-height: 100dvh;
+      padding: 12px 14px 28px; display: flex; flex-direction: column; gap: 12px;
     }
-
-    .app-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 4px 2px;
-    }
-
-    .app-title {
-      margin: 0;
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
+    .app-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 4px 2px; }
+    .app-title { margin: 0; font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; }
     button {
-      font-family: inherit;
-      cursor: pointer;
-      touch-action: manipulation;
-      border: none;
-      border-radius: var(--radius);
-      min-height: 48px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: background-color 0.15s ease, transform 0.08s ease, border-color 0.15s ease;
+      font-family: inherit; cursor: pointer; touch-action: manipulation; border: none;
+      border-radius: var(--radius); min-height: 48px; font-weight: 700; font-size: 0.95rem;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
     }
-
-    button:active {
-      transform: scale(0.985);
-    }
-
-    button:focus-visible,
-    textarea:focus-visible {
-      outline: 3px solid #2563eb;
-      outline-offset: 2px;
-    }
-
     .btn-header {
-      background: var(--surface);
-      color: var(--text);
-      border: 1.5px solid var(--border);
-      padding: 0 12px;
-      font-size: 0.85rem;
-      white-space: nowrap;
-      box-shadow: var(--shadow);
+      background: var(--surface); color: var(--text); border: 1.5px solid var(--border);
+      padding: 0 12px; font-size: 0.85rem; white-space: nowrap; box-shadow: var(--shadow);
     }
-
-    .btn-header:hover {
-      background: var(--surface-alt);
-    }
-
-    .action-bar {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
+    .action-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .btn-secondary {
-      background: var(--surface);
-      color: var(--text);
-      border: 1.5px solid #94a3b8;
-      padding: 0 12px;
-      font-size: 0.98rem;
-      min-height: 52px;
-      box-shadow: var(--shadow);
+      background: var(--surface); color: var(--text); border: 1.5px solid #94a3b8;
+      padding: 0 12px; font-size: 0.98rem; min-height: 52px; box-shadow: var(--shadow);
     }
-
     .btn-primary {
-      background: var(--accent);
-      color: var(--accent-contrast);
-      padding: 0 14px;
-      font-size: 1rem;
-      min-height: 52px;
-      box-shadow: 0 3px 10px rgba(15, 76, 129, 0.28);
+      background: var(--accent); color: var(--accent-contrast); padding: 0 14px;
+      font-size: 1rem; min-height: 52px; box-shadow: 0 3px 10px rgba(15, 76, 129, 0.28);
     }
-
-    .btn-primary:hover {
-      background: var(--accent-hover);
-    }
-
     .btn-danger-outline {
-      background: var(--danger-bg);
-      color: var(--danger);
-      border: 1.5px solid #fecaca;
-      padding: 0 14px;
+      background: var(--danger-bg); color: var(--danger); border: 1.5px solid #fecaca; padding: 0 14px;
     }
-
     .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 12px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); box-shadow: var(--shadow); padding: 12px;
     }
-
-    .input-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
+    .input-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .input-label { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+    .status-hint { font-size: 0.82rem; color: var(--text-muted); margin: 6px 0 0; }
+    .status-hint.ok { color: var(--success); font-weight: 600; }
+    .status-hint.err { color: var(--danger); font-weight: 600; }
+    .html-textarea, .rooms-textarea {
+      width: 100%; min-height: 170px; padding: 12px; border: 1.5px solid var(--border);
+      border-radius: 10px; background: var(--surface-alt); color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.88rem; line-height: 1.45; resize: vertical;
     }
-
-    .input-label {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .status-hint {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin: 6px 0 0;
-    }
-
-    .status-hint.ok {
-      color: var(--success);
-      font-weight: 600;
-    }
-
-    .status-hint.err {
-      color: var(--danger);
-      font-weight: 600;
-    }
-
-    .html-textarea {
-      width: 100%;
-      min-height: 170px;
-      padding: 12px;
-      border: 1.5px solid var(--border);
-      border-radius: 10px;
-      background: var(--surface-alt);
-      color: var(--text);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.85rem;
-      line-height: 1.45;
-      resize: vertical;
-    }
-
     .collapsed-bar {
-      width: 100%;
-      background: var(--surface-alt);
-      color: var(--text);
-      border: 1.5px solid var(--border);
-      justify-content: space-between;
-      padding: 0 14px;
-      font-size: 0.9rem;
-      font-weight: 600;
+      width: 100%; background: var(--surface-alt); color: var(--text); border: 1.5px solid var(--border);
+      justify-content: space-between; padding: 0 14px; font-size: 0.9rem; font-weight: 600;
     }
-
-    .collapsed-meta {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      text-align: left;
-    }
-
-    .collapsed-action {
-      color: var(--accent);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .output-card {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .output-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .output-title {
-      margin: 0;
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--text);
-    }
-
-    .btn-copy {
-      background: var(--accent);
-      color: var(--accent-contrast);
-      padding: 0 16px;
-      font-size: 0.92rem;
-      flex-shrink: 0;
-    }
-
-    .btn-copy.copied {
-      background: var(--success);
-    }
-
+    .collapsed-meta { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left; }
+    .collapsed-action { color: var(--accent); font-weight: 700; flex-shrink: 0; }
+    .output-card { display: flex; flex-direction: column; gap: 10px; }
+    .output-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .output-title { margin: 0; font-size: 1rem; font-weight: 800; }
+    .btn-copy { background: var(--accent); color: var(--accent-contrast); padding: 0 16px; font-size: 0.92rem; flex-shrink: 0; }
+    .btn-copy.copied { background: var(--success); }
     .output-pre {
-      margin: 0;
-      padding: 14px;
-      background: var(--surface-alt);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.94rem;
-      line-height: 1.6;
-      color: var(--text);
-      white-space: pre-wrap;
-      word-break: break-word;
-      user-select: text;
+      margin: 0; padding: 14px; background: var(--surface-alt); border: 1px solid var(--border);
+      border-radius: 10px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.94rem; line-height: 1.6; color: var(--text); white-space: pre-wrap; word-break: break-word; user-select: text;
     }
-
-    .hidden {
-      display: none !important;
-    }
-
+    .hidden { display: none !important; }
     .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.58);
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      z-index: 100;
-      padding: 0;
+      position: fixed; inset: 0; background: rgba(15, 23, 42, 0.58);
+      display: flex; align-items: flex-end; justify-content: center; z-index: 100;
     }
-
-    @media (min-width: 500px) {
-      .modal-backdrop {
-        align-items: center;
-        padding: 16px;
-      }
-    }
-
+    @media (min-width: 500px) { .modal-backdrop { align-items: center; padding: 16px; } }
     .modal-sheet {
-      width: 100%;
-      max-width: 480px;
-      max-height: 92dvh;
-      background: var(--surface);
-      border-radius: 18px 18px 0 0;
-      padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      box-shadow: 0 -8px 30px rgba(15, 23, 42, 0.25);
-      overflow-y: auto;
+      width: 100%; max-width: 480px; max-height: 92dvh; background: var(--surface);
+      border-radius: 18px 18px 0 0; padding: 16px; display: flex; flex-direction: column; gap: 12px; overflow-y: auto;
     }
-
-    @media (min-width: 500px) {
-      .modal-sheet {
-        border-radius: 16px;
-      }
-    }
-
-    .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .modal-title {
-      margin: 0;
-      font-size: 1.15rem;
-      font-weight: 800;
-    }
-
-    .room-count-badge {
-      background: var(--secondary-bg);
-      color: var(--text);
-      font-size: 0.82rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 999px;
-    }
-
-    .modal-help {
-      margin: 0;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    .rooms-textarea {
-      width: 100%;
-      min-height: 170px;
-      padding: 12px;
-      border: 1.5px solid var(--border);
-      border-radius: 10px;
-      background: var(--surface-alt);
-      color: var(--text);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      resize: vertical;
-    }
-
-    .modal-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .modal-actions .full-span {
-      grid-column: 1 / -1;
-    }
+    .modal-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .modal-title { margin: 0; font-size: 1.15rem; font-weight: 800; }
+    .room-count-badge { background: var(--secondary-bg); font-size: 0.82rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
+    .modal-help { margin: 0; font-size: 0.88rem; color: var(--text-muted); }
+    .modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .modal-actions .full-span { grid-column: 1 / -1; }
   </style>
 </head>
 <body>
   <div class="app-shell">
     <header class="app-header">
       <h1 class="app-title">Room Finder</h1>
-      <button type="button" id="editRoomsBtn" class="btn-header" aria-label="Edit Rooms of Interest">
-        Edit Rooms of Interest
-      </button>
+      <button type="button" id="editRoomsBtn" class="btn-header">Edit Rooms of Interest</button>
     </header>
 
-    <section class="action-bar" aria-label="Primary Actions">
-      <button type="button" id="pasteBtn" class="btn-secondary">
-        Paste Daily HTML
-      </button>
-      <button type="button" id="calculateBtn" class="btn-primary">
-        Calculate
-      </button>
+    <section class="action-bar">
+      <button type="button" id="pasteBtn" class="btn-secondary">Paste Daily HTML</button>
+      <button type="button" id="calculateBtn" class="btn-primary">Calculate</button>
     </section>
 
-    <section class="card" aria-label="HTML Input Area">
+    <section class="card">
       <div id="expandedInputWrap">
         <div class="input-header">
-          <label for="htmlInput" class="input-label">Daily HTML Schedule</label>
+          <label for="htmlInput" class="input-label">Daily HTML / Report Text</label>
           <span id="roomsBadgeMini" class="status-hint" style="margin:0;"></span>
         </div>
-        <textarea
-          id="htmlInput"
-          class="html-textarea"
-          placeholder="Tap 'Paste Daily HTML' or long-press here to paste your daily HTML schedule report..."
-          spellcheck="false"
-          autocomplete="off"
-        ></textarea>
-        <p id="inputStatus" class="status-hint">Ready for daily HTML schedule.</p>
+        <textarea id="htmlInput" class="html-textarea" placeholder="Tap 'Paste Daily HTML' or long-press here to paste your daily schedule..." spellcheck="false" autocomplete="off"></textarea>
+        <p id="inputStatus" class="status-hint">Ready for daily schedule.</p>
       </div>
-
       <button type="button" id="collapsedPreviewBtn" class="collapsed-bar hidden" aria-expanded="false">
-        <span id="collapsedSummary" class="collapsed-meta">HTML loaded</span>
+        <span id="collapsedSummary" class="collapsed-meta">Schedule loaded</span>
         <span class="collapsed-action">Expand</span>
       </button>
     </section>
@@ -417,22 +145,14 @@
     </section>
   </div>
 
-  <div id="roomsModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div id="roomsModal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
     <div class="modal-sheet">
       <div class="modal-header">
-        <h2 id="modalTitle" class="modal-title">Rooms of Interest</h2>
+        <h2 class="modal-title">Rooms of Interest</h2>
         <span id="modalRoomCount" class="room-count-badge">0 rooms</span>
       </div>
-      <p class="modal-help">
-        Enter room codes separated by commas, spaces, or new lines. On save, codes are uppercased, extra spaces and hyphens are removed, and dots (e.g., <strong>C.107</strong>) are preserved.
-      </p>
-      <textarea
-        id="roomsTextarea"
-        class="rooms-textarea"
-        spellcheck="false"
-        autocomplete="off"
-        aria-label="Rooms of Interest list"
-      ></textarea>
+      <p class="modal-help">Enter room codes separated by commas, spaces, or new lines. Dots (e.g., <strong>C.107</strong>) are preserved.</p>
+      <textarea id="roomsTextarea" class="rooms-textarea" spellcheck="false" autocomplete="off"></textarea>
       <div class="modal-actions">
         <button type="button" id="resetRoomsBtn" class="btn-danger-outline full-span">Reset to Default</button>
         <button type="button" id="cancelRoomsBtn" class="btn-secondary">Cancel</button>
@@ -444,7 +164,6 @@
   <script>
     (function () {
       'use strict';
-
       var STORAGE_KEY = 'room_finder_rooms_of_interest_v1';
       var DEFAULT_ROOMS = [
         'H4', 'H2', 'H313', 'A107', 'A101', 'A109', 'A110', 'A111',
@@ -467,7 +186,6 @@
       var outputCard = document.getElementById('outputCard');
       var outputReport = document.getElementById('outputReport');
       var copyBtn = document.getElementById('copyBtn');
-
       var roomsModal = document.getElementById('roomsModal');
       var roomsTextarea = document.getElementById('roomsTextarea');
       var modalRoomCount = document.getElementById('modalRoomCount');
@@ -477,16 +195,12 @@
 
       function normalizeRoomList(rawText) {
         if (!rawText) return [];
-        var prepared = String(rawText).replace(/\.\s+/g, '.');
-        var tokens = prepared.split(/[\s,;]+/);
+        var tokens = String(rawText).replace(/\.\s+/g, '.').split(/[\s,;]+/);
         var seen = new Set();
         var result = [];
         for (var i = 0; i < tokens.length; i++) {
           var clean = tokens[i].trim().toUpperCase().replace(/[-\s]+/g, '');
-          if (clean && !seen.has(clean)) {
-            seen.add(clean);
-            result.push(clean);
-          }
+          if (clean && !seen.has(clean)) { seen.add(clean); result.push(clean); }
         }
         return result;
       }
@@ -496,46 +210,32 @@
           var saved = localStorage.getItem(STORAGE_KEY);
           if (saved) {
             var parsed = JSON.parse(saved);
-            if (Array.isArray(parsed) && parsed.length > 0) {
-              var normalized = normalizeRoomList(parsed.join(', '));
-              if (normalized.length > 0) return normalized;
-            }
+            if (Array.isArray(parsed) && parsed.length > 0) return normalizeRoomList(parsed.join(', '));
           }
         } catch (e) {}
         return DEFAULT_ROOMS.slice();
       }
 
       function saveRooms(list) {
-        try {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
-        } catch (e) {}
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch (e) {}
       }
 
       var roomsOfInterest = loadRooms();
-
-      function updateRoomsCountIndicators() {
-        roomsBadgeMini.textContent = roomsOfInterest.length + ' rooms tracked';
-      }
-      updateRoomsCountIndicators();
+      roomsBadgeMini.textContent = roomsOfInterest.length + ' rooms tracked';
 
       function setStatus(msg, type) {
         inputStatus.textContent = msg;
         inputStatus.className = 'status-hint' + (type ? ' ' + type : '');
       }
-
       function expandInputArea() {
         expandedInputWrap.classList.remove('hidden');
         collapsedPreviewBtn.classList.add('hidden');
-        collapsedPreviewBtn.setAttribute('aria-expanded', 'true');
       }
-
       function collapseInputArea(summaryText) {
         expandedInputWrap.classList.add('hidden');
         collapsedSummary.textContent = summaryText;
         collapsedPreviewBtn.classList.remove('hidden');
-        collapsedPreviewBtn.setAttribute('aria-expanded', 'false');
       }
-
       function clearOutput() {
         outputReport.textContent = '';
         outputCard.classList.add('hidden');
@@ -549,455 +249,280 @@
         expandInputArea();
         htmlInput.focus();
         setStatus('Cleared. Reading clipboard or ready for long-press paste...', '');
-
-        if (navigator.clipboard && typeof navigator.clipboard.readText === 'function') {
+        if (navigator.clipboard && navigator.clipboard.readText) {
           try {
             var clipText = await navigator.clipboard.readText();
-            if (clipText && clipText.trim().length > 0) {
+            if (clipText && clipText.trim()) {
               htmlInput.value = clipText;
-              var kb = (clipText.length / 1024).toFixed(1);
-              setStatus('Pasted ' + kb + ' KB from clipboard. Tap Calculate.', 'ok');
-            } else {
-              setStatus('Clipboard is empty. Long-press inside the box to paste.', '');
+              setStatus('Pasted ' + (clipText.length / 1024).toFixed(1) + ' KB. Tap Calculate.', 'ok');
+              return;
             }
-          } catch (err) {
-            setStatus('Ready — long-press inside the box to paste HTML.', '');
-          }
-        } else {
-          setStatus('Ready — long-press inside the box to paste HTML.', '');
+          } catch (err) {}
         }
+        setStatus('Ready — long-press inside the box to paste.', '');
       });
 
-      collapsedPreviewBtn.addEventListener('click', function () {
-        expandInputArea();
-        htmlInput.focus();
-      });
-
-      function openRoomsModal() {
+      collapsedPreviewBtn.addEventListener('click', function () { expandInputArea(); htmlInput.focus(); });
+      editRoomsBtn.addEventListener('click', function () {
         roomsTextarea.value = roomsOfInterest.join(', ');
         modalRoomCount.textContent = roomsOfInterest.length + ' rooms';
         roomsModal.classList.remove('hidden');
-        roomsTextarea.focus();
-      }
-
-      function closeRoomsModal() {
-        roomsModal.classList.add('hidden');
-      }
-
+      });
+      cancelRoomsBtn.addEventListener('click', function () { roomsModal.classList.add('hidden'); });
       roomsTextarea.addEventListener('input', function () {
-        var count = normalizeRoomList(roomsTextarea.value).length;
-        modalRoomCount.textContent = count + (count === 1 ? ' room' : ' rooms');
+        modalRoomCount.textContent = normalizeRoomList(roomsTextarea.value).length + ' rooms';
       });
-
-      editRoomsBtn.addEventListener('click', openRoomsModal);
-      cancelRoomsBtn.addEventListener('click', closeRoomsModal);
-
-      roomsModal.addEventListener('click', function (e) {
-        if (e.target === roomsModal) closeRoomsModal();
-      });
-
       resetRoomsBtn.addEventListener('click', function () {
         roomsOfInterest = DEFAULT_ROOMS.slice();
         saveRooms(roomsOfInterest);
         roomsTextarea.value = roomsOfInterest.join(', ');
         modalRoomCount.textContent = roomsOfInterest.length + ' rooms';
-        updateRoomsCountIndicators();
+        roomsBadgeMini.textContent = roomsOfInterest.length + ' rooms tracked';
       });
-
       saveRoomsBtn.addEventListener('click', function () {
-        var normalized = normalizeRoomList(roomsTextarea.value);
-        if (normalized.length === 0) {
-          alert('Please enter at least one room code, or tap Reset to Default.');
-          return;
-        }
-        roomsOfInterest = normalized;
+        var norm = normalizeRoomList(roomsTextarea.value);
+        if (!norm.length) return;
+        roomsOfInterest = norm;
         saveRooms(roomsOfInterest);
-        updateRoomsCountIndicators();
-        closeRoomsModal();
+        roomsBadgeMini.textContent = roomsOfInterest.length + ' rooms tracked';
+        roomsModal.classList.add('hidden');
       });
 
       copyBtn.addEventListener('click', async function () {
         var text = outputReport.textContent;
         if (!text) return;
-        var copied = false;
-        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
-          try {
-            await navigator.clipboard.writeText(text);
-            copied = true;
-          } catch (e) {}
+        try { await navigator.clipboard.writeText(text); } catch (e) {
+          var t = document.createElement('textarea'); t.value = text;
+          document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t);
         }
-        if (!copied) {
-          var temp = document.createElement('textarea');
-          temp.value = text;
-          temp.style.position = 'fixed';
-          temp.style.opacity = '0';
-          document.body.appendChild(temp);
-          temp.select();
-          try {
-            copied = document.execCommand('copy');
-          } catch (e) {}
-          document.body.removeChild(temp);
-        }
-        if (copied) {
-          copyBtn.textContent = 'Copied!';
-          copyBtn.classList.add('copied');
-          setTimeout(function () {
-            copyBtn.textContent = 'Copy Result';
-            copyBtn.classList.remove('copied');
-          }, 2000);
-        }
+        copyBtn.textContent = 'Copied!'; copyBtn.classList.add('copied');
+        setTimeout(function () { copyBtn.textContent = 'Copy Result'; copyBtn.classList.remove('copied'); }, 2000);
       });
 
-      /* ---------- RTL-Aware Schedule Parsing Engine ---------- */
-
       function cleanText(str) {
-        return (str || '')
-          .replace(/[\u00a0\u200e\u200f\u202a-\u202e\ufeff]/g, ' ')
-          .replace(/\s+/g, ' ')
-          .trim();
+        return (str || '').replace(/[\u00a0\u200e\u200f\u202a-\u202e\ufeff]/g, ' ').replace(/\s+/g, ' ').trim();
       }
-
-      function parseClockMinutes(hStr, mStr, ampm) {
-        var h = parseInt(hStr, 10);
-        var m = parseInt(mStr, 10);
-        if (isNaN(h) || isNaN(m) || m < 0 || m > 59) return null;
-        if (ampm) {
-          var ap = ampm.toUpperCase();
-          if (ap === 'PM' && h < 12) h += 12;
-          if (ap === 'AM' && h === 12) h = 0;
-        }
-        if (h < 0 || h > 24) return null;
-        if (h === 24 && m > 0) return null;
+      function parseClockMinutes(hStr, mStr) {
+        var h = parseInt(hStr, 10), m = parseInt(mStr, 10);
+        if (isNaN(h) || isNaN(m) || h < 0 || h > 24 || m < 0 || m > 59) return null;
         return h * 60 + m;
       }
-
       function formatTime(mins) {
-        var h = Math.floor(mins / 60);
-        var m = mins % 60;
+        var h = Math.floor(mins / 60), m = mins % 60;
         return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
       }
-
       function formatDuration(mins) {
         var hrs = mins / 60;
-        if (Math.abs(hrs - Math.round(hrs)) < 0.01) {
-          return Math.round(hrs) + (Math.round(hrs) === 1 ? ' hr' : ' hrs');
-        }
-        return hrs.toFixed(1) + ' hrs';
+        return Math.abs(hrs - Math.round(hrs)) < 0.01 ? Math.round(hrs) + ' hrs' : hrs.toFixed(1) + ' hrs';
       }
-
       function extractTimeRanges(text) {
-        var ranges = [];
-        var str = cleanText(text);
-        if (!str) return ranges;
-        var rangeRe = /(\d{1,2})[:.](\d{2})(?:\s*(AM|PM))?\s*(?:-|–|—|to|until|עד)\s*(\d{1,2})[:.](\d{2})(?:\s*(AM|PM))?/gi;
-        var match;
-        while ((match = rangeRe.exec(str)) !== null) {
-          var t1 = parseClockMinutes(match[1], match[2], match[3]);
-          var t2 = parseClockMinutes(match[4], match[5], match[6]);
-          if (t1 !== null && t2 !== null && t1 !== t2) {
-            ranges.push({ start: Math.min(t1, t2), end: Math.max(t1, t2) });
-          }
+        var ranges = [], str = cleanText(text);
+        var re = /(\d{1,2})[:.](\d{2})\s*(?:-|–|—|to|עד)\s*(\d{1,2})[:.](\d{2})/gi, m;
+        while ((m = re.exec(str)) !== null) {
+          var t1 = parseClockMinutes(m[1], m[2]), t2 = parseClockMinutes(m[3], m[4]);
+          if (t1 !== null && t2 !== null && t1 !== t2) ranges.push({ start: Math.min(t1, t2), end: Math.max(t1, t2) });
         }
         return ranges;
       }
-
-      function extractAllClockMinutes(text) {
-        var times = [];
-        var str = cleanText(text);
-        if (!str) return times;
-        var re = /(?:^|[^\d])(\d{1,2})[:.](\d{2})(?:\s*(AM|PM))?(?=$|[^\d])/gi;
-        var match;
-        while ((match = re.exec(str)) !== null) {
-          var mins = parseClockMinutes(match[1], match[2], match[3]);
-          if (mins !== null) times.push(mins);
+      function extractAllClocks(text) {
+        var times = [], str = cleanText(text);
+        var re = /(?:^|[^\d])(\d{1,2})[:.](\d{2})(?=$|[^\d])/g, m;
+        while ((m = re.exec(str)) !== null) {
+          var mins = parseClockMinutes(m[1], m[2]);
+          if (mins !== null && mins >= 420 && mins <= 1440) times.push(mins);
         }
         return times;
       }
-
-      function escapeRegex(s) {
-        return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      }
-
+      function escapeRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
       function buildRoomMatchers(rooms) {
         return rooms.map(function (room) {
-          var pattern = new RegExp('(?:^|[^A-Z0-9.])' + escapeRegex(room) + '(?=$|[^A-Z0-9.])');
-          return { code: room, regex: pattern };
+          var alt = room.indexOf('.') !== -1 ? '(?:' + escapeRegex(room) + '|' + escapeRegex(room.replace('.', '')) + ')' : escapeRegex(room);
+          return { code: room, regex: new RegExp('(?:^|[^A-Z0-9.])' + alt + '(?=$|[^A-Z0-9.])') };
         });
       }
-
+      /* Normalize Hebrew room prefixes like "אוH1", "או H4", "כי H2" so "H1", "H4", "H2" match cleanly */
+      function normalizeRoomSearchText(text) {
+        return cleanText(text)
+          .toUpperCase()
+          .replace(/\.\s+/g, '.')
+          .replace(/-/g, '')
+          .replace(/[\u0590-\u05FF]+\s*(?=[A-Z]+\d)/g, ' ');
+      }
       function matchRoomsInText(text, matchers) {
-        var raw = cleanText(text);
-        if (!raw) return [];
-        var upper = raw.toUpperCase().replace(/\.\s+/g, '.').replace(/-/g, '');
-        var compact = upper.replace(/\s+/g, '');
+        var norm = normalizeRoomSearchText(text);
+        if (!norm) return [];
         var found = [];
         for (var i = 0; i < matchers.length; i++) {
-          var m = matchers[i];
-          if (m.regex.test(upper) || (compact.length <= 20 && compact === m.code)) {
-            found.push(m.code);
-          }
+          if (matchers[i].regex.test(norm)) found.push(matchers[i].code);
         }
         return found;
       }
-
       function mergeIntervals(intervals) {
-        if (!intervals || intervals.length === 0) return [];
-        var sorted = intervals.slice().sort(function (a, b) {
-          return a.start !== b.start ? a.start - b.start : a.end - b.end;
-        });
+        if (!intervals.length) return [];
+        var sorted = intervals.slice().sort(function (a, b) { return a.start - b.start || a.end - b.end; });
         var merged = [{ start: sorted[0].start, end: sorted[0].end }];
         for (var i = 1; i < sorted.length; i++) {
-          var prev = merged[merged.length - 1];
-          var cur = sorted[i];
-          if (cur.start <= prev.end) {
-            if (cur.end > prev.end) prev.end = cur.end;
-          } else {
-            merged.push({ start: cur.start, end: cur.end });
-          }
+          var prev = merged[merged.length - 1], cur = sorted[i];
+          if (cur.start <= prev.end) { if (cur.end > prev.end) prev.end = cur.end; }
+          else merged.push({ start: cur.start, end: cur.end });
         }
         return merged;
       }
 
-      function extractReportDate(doc) {
-        var candidates = [];
-        var titleEl = doc.querySelector('title');
-        if (titleEl) candidates.push(cleanText(titleEl.textContent));
-        var headings = doc.querySelectorAll('h1, h2, h3, h4, caption, p, div');
-        for (var i = 0; i < Math.min(headings.length, 15); i++) {
-          candidates.push(cleanText(headings[i].textContent));
-        }
-        var dateRe = /(\d{1,2}[\/.-]\d{1,2}[\/.-]\d{2,4}|\d{4}-\d{2}-\d{2})/;
-        for (var j = 0; j < candidates.length; j++) {
-          var m = candidates[j].match(dateRe);
-          if (m) return m[1];
-        }
-        return new Date().toLocaleDateString('en-GB');
+      function isLikelyRoomHeaderLine(line) {
+        if (!line || line.length > 70) return false;
+        if (/\d{1,2}[:.]\d{2}/.test(line)) return false;
+        if (/^(?:שיעור|סמינריון|סדנא|בחינה|תרגיל|מספר קורס|ס\.נגישות|בניינים|חדרים|ניקוי|דילוג|אוניברסיטת|משרום|דוח חדרים|הדוח הופק)/.test(line)) return false;
+        return /,\s*$/.test(line) || /^[A-Z0-9.\- ]{2,16},/i.test(line);
       }
 
-      function recordRoomRanges(bookingsByRoom, seenRooms, room, ranges) {
-        seenRooms[room] = true;
-        if (!bookingsByRoom[room]) bookingsByRoom[room] = [];
-        for (var i = 0; i < ranges.length; i++) {
-          bookingsByRoom[room].push(ranges[i]);
-        }
+      function extractReportDate(rawInput) {
+        var headerMatch = rawInput.match(/דוח חדרים יומי[\s\S]{0,80}?(\d{1,2}[\/.-]\d{1,2}[\/.-]\d{2,4})/);
+        if (headerMatch) return headerMatch[1];
+        var anyMatch = rawInput.match(/(\d{1,2}[\/.-]\d{1,2}[\/.-]\d{2,4})/);
+        return anyMatch ? anyMatch[1] : new Date().toLocaleDateString('en-GB');
       }
 
-      function parseScheduleHtml(htmlString, roomsList) {
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(htmlString, 'text/html');
-        doc.querySelectorAll('style, script, link, meta').forEach(function (n) { n.remove(); });
-
+      function parseScheduleInput(rawInput, roomsList) {
+        var hasHtmlTags = /<(?:table|tr|td|div|html|body)\b/i.test(rawInput);
+        var stripped = rawInput.replace(/<style[\s\S]*?<\/style>/gi, '').replace(/<script[\s\S]*?<\/script>/gi, '');
+        var doc = new DOMParser().parseFromString(stripped, 'text/html');
         var matchers = buildRoomMatchers(roomsList);
         var bookingsByRoom = {};
         var seenRooms = {};
 
-        /* Scan rows and blocks (handles RTL ordering and non-grid blocks) */
-        var rows = Array.from(doc.querySelectorAll('tr'));
-        for (var r = 0; r < rows.length; r++) {
-          var cells = Array.from(rows[r].children);
-          var isRtl = (rows[r].getAttribute('dir') || rows[r].closest('[dir]')?.getAttribute('dir') || '').toLowerCase() === 'rtl';
-          if (isRtl) cells = cells.slice().reverse();
+        function addBooking(room, ranges) {
+          seenRooms[room] = true;
+          if (!bookingsByRoom[room]) bookingsByRoom[room] = [];
+          for (var i = 0; i < ranges.length; i++) bookingsByRoom[room].push(ranges[i]);
+        }
 
-          var rowRooms = [];
-          var rowRanges = [];
-          var rowClocks = [];
-
-          for (var c = 0; c < cells.length; c++) {
-            var txt = cleanText(cells[c].textContent);
-            if (!txt) continue;
-
-            var matched = matchRoomsInText(txt, matchers);
-            for (var mr = 0; mr < matched.length; mr++) {
-              if (rowRooms.indexOf(matched[mr]) === -1) rowRooms.push(matched[mr]);
-            }
-
-            var rngs = extractTimeRanges(txt);
-            for (var rg = 0; rg < rngs.length; rg++) rowRanges.push(rngs[rg]);
-
-            var clks = extractAllClockMinutes(txt);
-            for (var ck = 0; ck < clks.length; ck++) rowClocks.push(clks[ck]);
-          }
-
-          if (rowRooms.length > 0) {
-            var toStore = rowRanges.slice();
-            if (toStore.length === 0 && rowClocks.length >= 2) {
-              var sorted = rowClocks.slice().sort(function (a, b) { return a - b; });
-              for (var p = 0; p + 1 < sorted.length; p += 2) {
-                if (sorted[p + 1] > sorted[p]) {
-                  toStore.push({ start: sorted[p], end: sorted[p + 1] });
-                }
+        if (hasHtmlTags) {
+          var rows = Array.from(doc.querySelectorAll('tr'));
+          for (var r = 0; r < rows.length; r++) {
+            var rowTxt = cleanText(rows[r].textContent);
+            var rRooms = matchRoomsInText(rowTxt, matchers);
+            if (!rRooms.length) continue;
+            var rRanges = extractTimeRanges(rowTxt);
+            if (!rRanges.length) {
+              var clks = extractAllClocks(rowTxt).sort(function (a, b) { return a - b; });
+              for (var p = 0; p + 1 < clks.length; p += 2) {
+                if (clks[p + 1] > clks[p]) rRanges.push({ start: clks[p], end: clks[p + 1] });
               }
             }
-            for (var rr = 0; rr < rowRooms.length; rr++) {
-              recordRoomRanges(bookingsByRoom, seenRooms, rowRooms[rr], toStore);
-            }
+            for (var i = 0; i < rRooms.length; i++) addBooking(rRooms[i], rRanges);
           }
         }
 
-        var blocks = Array.from(doc.querySelectorAll('li, p, div, section, article, span'));
-        for (var b = 0; b < blocks.length; b++) {
-          if (blocks[b].children.length > 8) continue;
-          var bTxt = cleanText(blocks[b].textContent);
-          if (!bTxt || bTxt.length > 600) continue;
+        var plainSource = hasHtmlTags ? (doc.body ? (doc.body.innerText || doc.body.textContent) : stripped) : rawInput;
+        var textLines = plainSource.split(/\r?\n/);
+        var activeRooms = [];
 
-          var bRooms = matchRoomsInText(bTxt, matchers);
-          if (bRooms.length === 0) continue;
+        for (var l = 0; l < textLines.length; l++) {
+          var line = cleanText(textLines[l]);
+          if (!line) continue;
 
-          var bRanges = extractTimeRanges(bTxt);
-          if (bRanges.length === 0) {
-            var bClks = extractAllClockMinutes(bTxt);
-            if (bClks.length >= 2) {
-              var sClk = bClks.slice().sort(function (a, b2) { return a - b2; });
-              for (var idx = 0; idx + 1 < sClk.length; idx += 2) {
-                if (sClk[idx + 1] > sClk[idx]) {
-                  bRanges.push({ start: sClk[idx], end: sClk[idx + 1] });
-                }
-              }
-            }
-          }
+          var lineRanges = extractTimeRanges(line);
+          var lineRooms = matchRoomsInText(line, matchers);
 
-          for (var mIdx = 0; mIdx < bRooms.length; mIdx++) {
-            recordRoomRanges(bookingsByRoom, seenRooms, bRooms[mIdx], bRanges);
+          if (lineRooms.length > 0 && lineRanges.length > 0) {
+            activeRooms = lineRooms;
+            for (var j = 0; j < lineRooms.length; j++) addBooking(lineRooms[j], lineRanges);
+          } else if (lineRooms.length > 0 && line.length <= 65 && !/^(?:שיעור|סמינריון|סדנא|בחינה|תרגיל|מספר קורס)/.test(line)) {
+            activeRooms = lineRooms;
+            for (var k = 0; k < lineRooms.length; k++) addBooking(lineRooms[k], []);
+          } else if (isLikelyRoomHeaderLine(line)) {
+            activeRooms = [];
+          } else if (lineRanges.length > 0 && activeRooms.length > 0) {
+            for (var a = 0; a < activeRooms.length; a++) addBooking(activeRooms[a], lineRanges);
           }
         }
 
-        var reportDate = extractReportDate(doc);
-        var morningCutoff = 13 * 60 + 30;   /* 13:30: no lecture before 13:30 */
-        var afternoonCutoff = 11 * 60 + 30; /* 11:30: no lecture from 11:30 onward */
-        var eodMinutes = 21 * 60;            /* 21:00 end-of-day */
-        var minBreakMins = 120;              /* 2 hours minimum */
+        var reportDate = extractReportDate(rawInput);
+        var morningCutoff = 13 * 60 + 30;
+        var afternoonCutoff = 11 * 60 + 30;
+        var eodMinutes = 21 * 60;
+        var minBreakMins = 120;
 
         var notInReport = [];
         var breakItems = [];
         var otherRooms = [];
 
-        for (var i = 0; i < roomsList.length; i++) {
-          var room = roomsList[i];
-          var mergedBooked = mergeIntervals(bookingsByRoom[room] || []);
-
-          if (!seenRooms[room] || mergedBooked.length === 0) {
+        for (var idx = 0; idx < roomsList.length; idx++) {
+          var room = roomsList[idx];
+          var merged = mergeIntervals(bookingsByRoom[room] || []);
+          if (!seenRooms[room] || !merged.length) {
             notInReport.push(room);
             continue;
           }
 
-          var firstStart = mergedBooked[0].start;
-          var lastEnd = mergedBooked[mergedBooked.length - 1].end;
+          var firstStart = merged[0].start;
+          var lastEnd = merged[merged.length - 1].end;
           var isMorningFree = firstStart >= morningCutoff;
-          var isAfternoonFree = !mergedBooked.some(function (s) {
-            return s.end > afternoonCutoff || s.start >= afternoonCutoff;
-          });
-
+          var isAfternoonFree = !merged.some(function (s) { return s.end > afternoonCutoff || s.start >= afternoonCutoff; });
           var candidates = [];
 
           if (isAfternoonFree) {
             var aftStart = Math.max(afternoonCutoff, lastEnd);
             var aftDur = eodMinutes - aftStart;
             if (aftDur >= minBreakMins) {
-              candidates.push({
-                room: room,
-                duration: aftDur,
-                text: formatDuration(aftDur) + ' — ' + room + ' (Afternoon free: no lecture from 11:30, free ' + formatTime(aftStart) + '-end-of-day)'
-              });
+              candidates.push({ room: room, duration: aftDur, text: formatDuration(aftDur) + ' — ' + room + ' (Afternoon free: no lecture from 11:30, free ' + formatTime(aftStart) + '-end-of-day)' });
             }
           }
-
           if (isMorningFree) {
             var mornDur = firstStart - afternoonCutoff;
             if (mornDur >= minBreakMins) {
-              candidates.push({
-                room: room,
-                duration: mornDur,
-                text: formatDuration(mornDur) + ' — ' + room + ' (Morning free: no lecture before 13:30, first at ' + formatTime(firstStart) + ')'
-              });
+              candidates.push({ room: room, duration: mornDur, text: formatDuration(mornDur) + ' — ' + room + ' (Morning free: no lecture before 13:30, first at ' + formatTime(firstStart) + ')' });
             }
           }
-
-          for (var k = 1; k < mergedBooked.length; k++) {
-            var gStart = mergedBooked[k - 1].end;
-            var gEnd = mergedBooked[k].start;
-            var gDur = gEnd - gStart;
+          for (var g = 1; g < merged.length; g++) {
+            var gDur = merged[g].start - merged[g - 1].end;
             if (gDur >= minBreakMins) {
-              candidates.push({
-                room: room,
-                duration: gDur,
-                text: formatDuration(gDur) + ' — ' + room + ' (' + formatTime(gStart) + '-' + formatTime(gEnd) + ')'
-              });
+              candidates.push({ room: room, duration: gDur, text: formatDuration(gDur) + ' — ' + room + ' (' + formatTime(merged[g - 1].end) + '-' + formatTime(merged[g].start) + ')' });
             }
           }
-
           if (!isAfternoonFree && (eodMinutes - lastEnd) >= minBreakMins) {
             var endDur = eodMinutes - lastEnd;
-            candidates.push({
-              room: room,
-              duration: endDur,
-              text: formatDuration(endDur) + ' — ' + room + ' (' + formatTime(lastEnd) + '-end-of-day)'
-            });
+            candidates.push({ room: room, duration: endDur, text: formatDuration(endDur) + ' — ' + room + ' (' + formatTime(lastEnd) + '-end-of-day)' });
           }
 
-          if (candidates.length > 0) {
-            candidates.sort(function (a, b2) { return b2.duration - a.duration; });
+          if (candidates.length) {
+            candidates.sort(function (a, b) { return b.duration - a.duration; });
             breakItems.push(candidates[0]);
           } else {
             otherRooms.push(room);
           }
         }
 
-        breakItems.sort(function (a, b2) {
-          if (b2.duration !== a.duration) return b2.duration - a.duration;
-          return a.room.localeCompare(b2.room);
-        });
+        breakItems.sort(function (a, b) { return b.duration - a.duration || a.room.localeCompare(b.room); });
 
-        var lines = [];
-        lines.push('Date: ' + reportDate);
-        lines.push('');
+        var out = [
+          'Date: ' + reportDate, '',
+          'NOT LISTED IN REPORT (' + notInReport.length + '):',
+          notInReport.length ? notInReport.join(', ') : 'None', '',
+          'BREAKS 2+ HRS — LONGEST FIRST (' + breakItems.length + '):'
+        ];
+        if (breakItems.length) breakItems.forEach(function (b) { out.push(b.text); });
+        else out.push('None');
+        out.push('', 'OTHER ROOMS (< 2 HR BREAKS / BOOKED) (' + otherRooms.length + '):', otherRooms.length ? otherRooms.join(', ') : 'None');
 
-        lines.push('NOT LISTED IN REPORT (' + notInReport.length + '):');
-        lines.push(notInReport.length > 0 ? notInReport.join(', ') : 'None');
-        lines.push('');
-
-        lines.push('BREAKS 2+ HRS — LONGEST FIRST (' + breakItems.length + '):');
-        if (breakItems.length > 0) {
-          for (var bIdx = 0; bIdx < breakItems.length; bIdx++) {
-            lines.push(breakItems[bIdx].text);
-          }
-        } else {
-          lines.push('None');
-        }
-        lines.push('');
-
-        lines.push('OTHER ROOMS (< 2 HR BREAKS / BOOKED) (' + otherRooms.length + '):');
-        lines.push(otherRooms.length > 0 ? otherRooms.join(', ') : 'None');
-
-        return {
-          report: lines.join('\n'),
-          tablesParsed: rows.length,
-          foundCount: Object.keys(seenRooms).length
-        };
+        return { report: out.join('\n'), foundCount: Object.keys(seenRooms).length };
       }
 
       calculateBtn.addEventListener('click', function () {
         var rawHtml = htmlInput.value;
         if (!rawHtml || !rawHtml.trim()) {
           setStatus('Please paste the daily HTML schedule first.', 'err');
-          expandInputArea();
-          htmlInput.focus();
           return;
         }
-
-        var result = parseScheduleHtml(rawHtml, roomsOfInterest);
-        outputReport.textContent = result.report;
+        var res = parseScheduleInput(rawHtml, roomsOfInterest);
+        outputReport.textContent = res.report;
         outputCard.classList.remove('hidden');
-        copyBtn.textContent = 'Copy Result';
-        copyBtn.classList.remove('copied');
-
-        var kb = (rawHtml.length / 1024).toFixed(1);
-        collapseInputArea('HTML parsed (' + kb + ' KB · ' + result.foundCount + ' rooms matched)');
+        collapseInputArea('Parsed (' + (rawHtml.length / 1024).toFixed(1) + ' KB · ' + res.foundCount + ' rooms matched)');
       });
 
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function () {
-          navigator.serviceWorker.register('./sw.js').catch(function () {});
-        });
+        window.addEventListener('load', function () { navigator.serviceWorker.register('./sw.js').catch(function () {}); });
       }
     })();
   </script>
