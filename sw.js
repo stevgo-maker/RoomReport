@@ -1,4 +1,4 @@
-const CACHE_NAME = 'room-finder-v3';
+const CACHE_NAME = 'room-finder-v6;
 const ASSETS = [
   './',
   './index.html',
