@@ -340,7 +340,6 @@
           return { code: room, regex: new RegExp('(?:^|[^A-Z0-9.])' + alt + '(?=$|[^A-Z0-9.])') };
         });
       }
-      /* Normalize Hebrew room prefixes like "אוH1", "או H4", "כי H2" so "H1", "H4", "H2" match cleanly */
       function normalizeRoomSearchText(text) {
         return cleanText(text)
           .toUpperCase()
@@ -439,12 +438,13 @@
         }
 
         var reportDate = extractReportDate(rawInput);
-        var morningCutoff = 13 * 60 + 30;
-        var afternoonCutoff = 11 * 60 + 30;
-        var eodMinutes = 21 * 60;
-        var minBreakMins = 120;
+        var dayStart = 8 * 60;               /* 08:00 morning opening */
+        var morningCutoff = 13 * 60 + 30;    /* 13:30: no lecture before 13:30 */
+        var afternoonCutoff = 11 * 60 + 30;  /* 11:30: no lecture from 11:30 onward */
+        var eodMinutes = 21 * 60;             /* 21:00 end-of-day */
+        var minBreakMins = 120;               /* > 2 hours (strictly greater than 120 mins) */
 
-        var notInReport = [];
+        var noLectureRooms = [];
         var breakItems = [];
         var otherRooms = [];
 
@@ -452,7 +452,7 @@
           var room = roomsList[idx];
           var merged = mergeIntervals(bookingsByRoom[room] || []);
           if (!seenRooms[room] || !merged.length) {
-            notInReport.push(room);
+            noLectureRooms.push(room + ' - no lectures today');
             continue;
           }
 
@@ -462,28 +462,54 @@
           var isAfternoonFree = !merged.some(function (s) { return s.end > afternoonCutoff || s.start >= afternoonCutoff; });
           var candidates = [];
 
+          /* Opening morning availability from 08:00 until first lecture if > 2 hrs */
+          var openDur = firstStart - dayStart;
+          if (firstStart > dayStart && openDur > minBreakMins) {
+            candidates.push({
+              room: room,
+              duration: openDur,
+              text: room + ' available from ' + formatTime(dayStart) + ' - ' + formatTime(firstStart) + ' (' + formatDuration(openDur) + ')'
+            });
+          }
+
           if (isAfternoonFree) {
             var aftStart = Math.max(afternoonCutoff, lastEnd);
             var aftDur = eodMinutes - aftStart;
-            if (aftDur >= minBreakMins) {
-              candidates.push({ room: room, duration: aftDur, text: formatDuration(aftDur) + ' — ' + room + ' (Afternoon free: no lecture from 11:30, free ' + formatTime(aftStart) + '-end-of-day)' });
+            if (aftDur > minBreakMins) {
+              candidates.push({
+                room: room,
+                duration: aftDur,
+                text: formatDuration(aftDur) + ' — ' + room + ' (Afternoon free: no lecture from 11:30, free ' + formatTime(aftStart) + '-end-of-day)'
+              });
             }
           }
           if (isMorningFree) {
             var mornDur = firstStart - afternoonCutoff;
-            if (mornDur >= minBreakMins) {
-              candidates.push({ room: room, duration: mornDur, text: formatDuration(mornDur) + ' — ' + room + ' (Morning free: no lecture before 13:30, first at ' + formatTime(firstStart) + ')' });
+            if (mornDur > minBreakMins) {
+              candidates.push({
+                room: room,
+                duration: mornDur,
+                text: formatDuration(mornDur) + ' — ' + room + ' (Morning free: no lecture before 13:30, first at ' + formatTime(firstStart) + ')'
+              });
             }
           }
           for (var g = 1; g < merged.length; g++) {
             var gDur = merged[g].start - merged[g - 1].end;
-            if (gDur >= minBreakMins) {
-              candidates.push({ room: room, duration: gDur, text: formatDuration(gDur) + ' — ' + room + ' (' + formatTime(merged[g - 1].end) + '-' + formatTime(merged[g].start) + ')' });
+            if (gDur > minBreakMins) {
+              candidates.push({
+                room: room,
+                duration: gDur,
+                text: formatDuration(gDur) + ' — ' + room + ' (' + formatTime(merged[g - 1].end) + '-' + formatTime(merged[g].start) + ')'
+              });
             }
           }
-          if (!isAfternoonFree && (eodMinutes - lastEnd) >= minBreakMins) {
+          if (!isAfternoonFree && (eodMinutes - lastEnd) > minBreakMins) {
             var endDur = eodMinutes - lastEnd;
-            candidates.push({ room: room, duration: endDur, text: formatDuration(endDur) + ' — ' + room + ' (' + formatTime(lastEnd) + '-end-of-day)' });
+            candidates.push({
+              room: room,
+              duration: endDur,
+              text: formatDuration(endDur) + ' — ' + room + ' (' + formatTime(lastEnd) + '-end-of-day)'
+            });
           }
 
           if (candidates.length) {
@@ -498,13 +524,14 @@
 
         var out = [
           'Date: ' + reportDate, '',
-          'NOT LISTED IN REPORT (' + notInReport.length + '):',
-          notInReport.length ? notInReport.join(', ') : 'None', '',
-          'BREAKS 2+ HRS — LONGEST FIRST (' + breakItems.length + '):'
+          'NO LECTURES TODAY / NOT LISTED (' + noLectureRooms.length + '):'
         ];
+        if (noLectureRooms.length) noLectureRooms.forEach(function (n) { out.push(n); });
+        else out.push('None');
+        out.push('', 'BREAKS > 2 HRS — LONGEST FIRST (' + breakItems.length + '):');
         if (breakItems.length) breakItems.forEach(function (b) { out.push(b.text); });
         else out.push('None');
-        out.push('', 'OTHER ROOMS (< 2 HR BREAKS / BOOKED) (' + otherRooms.length + '):', otherRooms.length ? otherRooms.join(', ') : 'None');
+        out.push('', 'OTHER ROOMS (<= 2 HR BREAKS / BOOKED) (' + otherRooms.length + '):', otherRooms.length ? otherRooms.join(', ') : 'None');
 
         return { report: out.join('\n'), foundCount: Object.keys(seenRooms).length };
       }
